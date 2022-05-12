@@ -1,0 +1,77 @@
+﻿<Window x:Class="AccessHW.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:AccessHW"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="550" Width="900"
+        ResizeMode="NoResize">
+    <Grid>
+        <Grid x:Name="Main" Visibility="Visible">
+            <Button x:Name="Status" Content="Status: Disconnect" HorizontalAlignment="Left" Height="43" Margin="397,14,0,0" VerticalAlignment="Top" Width="125" Click="Button_Click_Status" Background="Red"/>
+            <Button x:Name="manuf" Content="TablesManufacturer" Background="LightGray"  HorizontalAlignment="Left" Height="30" Margin="557,172,0,0" VerticalAlignment="Top" Width="120" Click="Button_Click_manuf"/>
+            <Button x:Name="model" Content="TablesModel" Background="LightGray" HorizontalAlignment="Left" Height="30" Margin="223,167,0,0" VerticalAlignment="Top" Width="120" Click="Button_Click_model"/>
+            <Label Content="Выберите таблицу для работы с ней" HorizontalAlignment="Center" Height="53" Margin="0,117,0,0" VerticalAlignment="Top" Width="214"/>
+        </Grid>
+        <!--#region Model-->
+        <Grid x:Name="TableModel" Height="434" VerticalAlignment="Center" Visibility="Hidden">
+            <ScrollViewer Foreground="#FF2E4554" Margin="0 70">
+                <StackPanel x:Name="stackP1" Margin="70 20"/>
+            </ScrollViewer>
+            <Button Content="Добавить данные" Click="Button_Click_AddModel" HorizontalAlignment="Left" Height="41" Margin="655,10,0,0" VerticalAlignment="Top" Width="116"/>
+            <Button Content="Назад" Click="Button_Click_Back" HorizontalAlignment="Left" Height="28" Margin="36,10,0,0" VerticalAlignment="Top" Width="47"/>
+            <Button Content="Удалить" Click="Button_Click_DeleteDataModel" HorizontalAlignment="Left" Height="21" Margin="655,386,0,0" VerticalAlignment="Top" Width="99"/>
+            <TextBox x:Name="ModelDataRemove"  HorizontalAlignment="Left" Height="18" Margin="558,389,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="65"/>
+            <Label Content="Введите ID строки для удаления с таблицы" HorizontalAlignment="Left" Height="36" Margin="264,379,0,0" VerticalAlignment="Top" Width="256"/>
+        </Grid>
+        <Grid x:Name="DataModel" Visibility="Hidden">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="50*"></RowDefinition>
+                <RowDefinition Height="60*"></RowDefinition>
+                <RowDefinition Height="46*"></RowDefinition>
+                <RowDefinition Height="56*"></RowDefinition>
+                <RowDefinition Height="51*"></RowDefinition>
+                <RowDefinition Height="61*"></RowDefinition>
+                <RowDefinition Height="210*"></RowDefinition>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="89*"></ColumnDefinition>
+                <ColumnDefinition Width="361*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <TextBox x:Name="intModelId" TextWrapping="Wrap" Text="" Margin="36,4,544,10" Grid.Column="1" Grid.Row="1"/>
+            <TextBox x:Name="strNameModel" TextWrapping="Wrap" Text="" Margin="36,10,544,11" Grid.Column="1" Grid.Row="2"/>
+            <TextBox x:Name="intManufacturerID" TextWrapping="Wrap" Text="" Margin="36,7,544,2" Grid.Column="1" Grid.Row="3"/>
+            <TextBox x:Name="intSMCSFamilyID" TextWrapping="Wrap" Text="" Margin="35,8,545,13" Grid.Column="1" Grid.Row="4"/>
+            <TextBox x:Name="strImage" TextWrapping="Wrap" Text="" Margin="35,1,545,20" Grid.Column="1" Grid.Row="5"/>
+            <Label  Content="intModelId" HorizontalAlignment="Center" Height="28" Margin="0,13,0,0" VerticalAlignment="Top" Width="122" Grid.Row="1"/>
+            <Label  Content="strNameModel" HorizontalAlignment="Center" Height="28" Margin="0,60,0,0" VerticalAlignment="Top" Width="123" Grid.Row="1" Grid.RowSpan="2"/>
+            <Label  Content="intManufacturerID" HorizontalAlignment="Left" Height="28" Margin="19,3,0,0" VerticalAlignment="Top" Width="123" Grid.Row="3"/>
+            <Label  Content="intSMCSFamilyID" HorizontalAlignment="Center" Height="28" Margin="0,5,0,0" VerticalAlignment="Top" Width="123" Grid.Row="4"/>
+            <Label  Content="strImage" HorizontalAlignment="Left" Height="28" Margin="33,7,0,0" VerticalAlignment="Top" Width="123" Grid.Row="5"/>
+            <Button  Click="Button_Click_SaveAddModel" Content="Добавить" HorizontalAlignment="Left" Height="30" Margin="306,18,0,0" VerticalAlignment="Top" Width="83" Grid.Column="1"/>
+            <Button Content="Отмена" Click="Button_Click_Back" HorizontalAlignment="Left" Height="30" Margin="93,0,0,0" VerticalAlignment="Center" Width="80" RenderTransformOrigin="1,0"/>
+        </Grid>
+        <!--#endregion-->
+        <!--#region Manuf-->
+        <Grid x:Name="TableManuf" Height="434" VerticalAlignment="Center" Visibility="Hidden">
+            <ScrollViewer Foreground="#FF2E4554" Margin="0 70">
+                <StackPanel x:Name="stackP2" Margin="70 20"/>
+            </ScrollViewer>
+            <Button Content="Добавить данные" Click="Button_Click_AddManuf" HorizontalAlignment="Left" Height="41" Margin="655,10,0,0" VerticalAlignment="Top" Width="116"/>
+            <Button Content="Назад" Click="Button_Click_Back" HorizontalAlignment="Left" Height="28" Margin="36,10,0,0" VerticalAlignment="Top" Width="47"/>
+            <Button Content="Удалить" Click="Button_Click_DeleteDataManuf" HorizontalAlignment="Left" Height="21" Margin="655,386,0,0" VerticalAlignment="Top" Width="99"/>
+            <TextBox x:Name="ManufDataRemove"  HorizontalAlignment="Left" Height="18" Margin="558,389,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="65"/>
+            <Label Content="Введите ID строки для удаления с таблицы" HorizontalAlignment="Left" Height="36" Margin="264,379,0,0" VerticalAlignment="Top" Width="256"/>
+        </Grid>
+        <Grid x:Name="DataManufacture" Visibility="Hidden">
+            <TextBox x:Name="intManufId" TextWrapping="Wrap" Text="" Margin="318,132,318,274" Height="40"/>
+            <TextBox x:Name="strName" TextWrapping="Wrap" Text="" Margin="318,189,317,217"/>
+            <Label  Content="intManufacturerId->" HorizontalAlignment="Left" Height="28" Margin="172,132,0,0" VerticalAlignment="Top" Width="123"/>
+            <Label  Content="StrName->" HorizontalAlignment="Left" Height="28" Margin="172,189,0,0" VerticalAlignment="Top" Width="123"/>
+            <Button Click="Button_Click_SaveAddManuf" Content="Добавить" HorizontalAlignment="Left" Height="30" Margin="599,287,0,0" VerticalAlignment="Top" Width="83"/>
+            <Button Content="Отмена" Click="Button_Click_Back" HorizontalAlignment="Left" Height="30" Margin="114,287,0,0" VerticalAlignment="Top" Width="80"/>
+        </Grid>
+        <!--#endregion-->
+    </Grid>
+</Window>
